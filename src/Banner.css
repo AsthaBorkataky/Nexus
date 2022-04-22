@@ -1,0 +1,21 @@
+.banner{
+    height:50vh;
+    position: relative;
+    background: url("http://vinayakwebsite.com/wp-content/uploads/2016/01/NGO.jpg") center center;   
+}
+
+.banner_info{
+    background-color: black;
+    color: rgb(236, 96, 4);
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 300px;
+    padding-bottom: 20px;
+}
+
+.banner_info >h5{
+    margin-top: 20px;
+
+}
+
