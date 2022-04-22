@@ -39,9 +39,9 @@
     width: 250px;
 }
 
-/*header_right{
+header_right{
     display: flex;
     justify-content: space-between;
     width: 10vw;
     margin-right: 12px;
-}*/
+}

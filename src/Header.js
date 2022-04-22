@@ -32,9 +32,9 @@ function Header() {
 
           <div className='header_right'>
          
-          <Link to='about'> Host Your Ngo</Link>
+          <Link to='addngo'><Button color ='warning' outline> Host Your Ngo</Button></Link>
           
-            <AccountCircleIcon />
+            <Link to ='signin'><Button color ='warning' outline>Sign In</Button></Link>
             </div>
         </div> 
     

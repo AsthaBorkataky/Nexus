@@ -6,6 +6,7 @@ import Card from './Card'
 import { Grid } from '@mui/material'
 import Header from './Header'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 
 function Home() {
     return (
@@ -17,13 +18,16 @@ function Home() {
             <div className='home__section'>
             <Grid container spacing ={3}>
                 
-                <Grid item xs ={12} sm={6} md={4}>
+                
+                <Grid item xs ={12} sm={6} md={4}> 
+                <Link to="animalwelfare">
                 <Card
                 src="https://c1.wallpaperflare.com/preview/382/605/294/animal-welfare-dog-imprisoned-animal-shelter.jpg"
                 title="Animal Welfare"
                 />
+                </Link>
                 </Grid>
-
+                
                 <Grid item xs ={12} sm={6} md={4}>
                 <Card
                 src="https://us.123rf.com/450wm/sarayutsy/sarayutsy1904/sarayutsy190400050/126796981-in-the-hands-of-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-on-nature-fi.jpg?ver=6"
