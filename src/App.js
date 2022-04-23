@@ -6,6 +6,7 @@ import { Link,Routes } from 'react-router-dom';
 import SignIn from './SignIn';
 import AnimalWelfare from './AnimalWelfare';
 import AddNgo from './AddNgo';
+import AllNgos from './AllNgos';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="signin" element={<SignIn/>}></Route>
           <Route path="animalwelfare" element={<AnimalWelfare/>}></Route>
           <Route path="addngo" element={<AddNgo/>}></Route>
+          <Route path="allngos" element={<AllNgos/>}></Route>
       </Routes>
 
         </div>

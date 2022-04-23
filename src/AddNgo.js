@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function AddNgo() {
 const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
+const [id,setId] = useState(1);
 const formHandler = (e) =>{
   e.preventDefault();
   axios.post("http://localhost:8096/api/saveNgo",ngoDetails).then(
@@ -29,10 +30,12 @@ const formHandler = (e) =>{
                 <Input
       id="name"
       name="name"
-      placeholder="enter your ngo name"
+      placeholder="Enter Your Ngo Name"
       type="name"
-      onChange={(e)=>{setNgoDetails({...ngoDetails,"name":e.target.value})}}
-      
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"name":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
     />
   </FormGroup>
   <FormGroup>
@@ -42,7 +45,7 @@ const formHandler = (e) =>{
     <Input
       id="email"
       name="email"
-      placeholder="enter Ngo email"
+      placeholder="Enter Ngo Email"
       type="email"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"email":e.target.value})}}
     />
@@ -54,14 +57,74 @@ const formHandler = (e) =>{
     <Input
       id="password"
       name="password"
-      placeholder="password placeholder"
+      placeholder="password"
       type="password"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"password":e.target.value})}}
     />
   </FormGroup>
   <FormGroup>
+          <Label for="Vision">
+              VISION
+            </Label>
+                <Input
+      id="vison"
+      name="vision"
+      placeholder="Enter Your Ngo Vision"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"vision":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
+          <Label for="Address">
+              Address
+            </Label>
+                <Input
+      id="address"
+      name="address"
+      placeholder="Enter Your Ngo Address"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"address":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
+          <Label for="loc">
+              Location
+            </Label>
+                <Input
+      id="loc"
+      name="loc"
+      placeholder="Enter Your Ngo State Location"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"loc":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
+          <Label for="Phone No">
+              Phone No
+            </Label>
+                <Input
+      id="phoneno"
+      name="phoneno"
+      placeholder="Enter Your Ngo Phone No"
+      type="tel" pattern='[0-9]{10}'
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"phoneno":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
     <Label for="exampleSelect">
-      Select
+      Your Category
     </Label>
     <Input
       id="exampleSelect"
@@ -70,20 +133,71 @@ const formHandler = (e) =>{
       onChange={(e)=>{setNgoDetails({...ngoDetails,"category":e.target.value})}}
     >
       <option label='Animal Welfare' value="animal" />
-      
-      <option>
-        2
-      </option>
-      <option>
-        3
-      </option>
-      <option>
-        4
-      </option>
-      <option>
-        5
-      </option>
+      <option label='Forest Conservation' value="forest" />
+      <option label='Aiding The Old' value="old"/>
+      <option label='Women Empowerment' value="women"/>
+      <option label='Child Education' value="child"/>
+      <option label='Healthcare' value="health"/>
+      <option label='Empowering The Disabled' value="disabled"/>
+      <option label='Water Conservation' value="water"/>
+      <option label='Food Managment' value="food"/>
     </Input>
+  </FormGroup>
+  <FormGroup>
+    <Label for="desc">
+      Enter Ngo Description
+    </Label>
+    <Input
+      id="exampleText"
+      name="text"
+      type="textarea"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"desc":e.target.value})}}
+    />
+    <FormGroup>
+          <Label for="Campaign1">
+              Enter your First Running Campaign
+            </Label>
+                <Input
+      id="campaign1"
+      name="campaign1"
+      placeholder="Enter Your First Recent Campaign"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign1":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
+          <Label for="Campaign2">
+              Enter your Second Running Campaign
+            </Label>
+                <Input
+      id="campaign2"
+      name="campaign2"
+      placeholder="Enter Your Second Running Campaign"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign2":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
+  <FormGroup>
+          <Label for="Campaign3">
+              Enter your Third Recent Campaign
+            </Label>
+                <Input
+      id="campaign3"
+      name="campaign3"
+      placeholder="Enter Your Third Recent Campaign"
+      type="text"
+      onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign3":e.target.value});
+    setId(e.target.value);
+    console.log(id);
+    }}  
+    />
+  </FormGroup>
   </FormGroup>
   <Button onClick={(e)=>{console.log(ngoDetails);formHandler(e)}}>
     Submit
