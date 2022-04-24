@@ -7,6 +7,7 @@ import SignIn from './SignIn';
 import AnimalWelfare from './AnimalWelfare';
 import AddNgo from './AddNgo';
 import AllNgos from './AllNgos';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="animalwelfare" element={<AnimalWelfare/>}></Route>
           <Route path="addngo" element={<AddNgo/>}></Route>
           <Route path="allngos" element={<AllNgos/>}></Route>
+          <Route path="signin" element={<SignIn/>}></Route>
+          <Route path="signin/profile" element={<Profile/>}></Route>
       </Routes>
 
         </div>

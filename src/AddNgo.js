@@ -3,9 +3,11 @@ import React, { Fragment, useState } from 'react'
 import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 function AddNgo() {
 const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
+let history=useNavigate();
 const [id,setId] = useState(1);
 const formHandler = (e) =>{
   e.preventDefault();
@@ -13,7 +15,7 @@ const formHandler = (e) =>{
   (response)=>{
     console.log(response);
     setNgoDetails(response.data);
-
+   history('/')
 },(error)=>{
     console.log(error);
     
@@ -132,15 +134,15 @@ const formHandler = (e) =>{
       type="select"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"category":e.target.value})}}
     >
-      <option label='Animal Welfare' value="animal" />
-      <option label='Forest Conservation' value="forest" />
-      <option label='Aiding The Old' value="old"/>
-      <option label='Women Empowerment' value="women"/>
-      <option label='Child Education' value="child"/>
-      <option label='Healthcare' value="health"/>
-      <option label='Empowering The Disabled' value="disabled"/>
-      <option label='Water Conservation' value="water"/>
-      <option label='Food Managment' value="food"/>
+      <option label='Animal Welfare' value="animal welfare" />
+      <option label='Forest Conservation' value="forest conservation" />
+      <option label='Aiding The Old' value="aiding the old"/>
+      <option label='Women Empowerment' value="women empowerment"/>
+      <option label='Child Education' value="child education"/>
+      <option label='Healthcare' value="healthcare"/>
+      <option label='Empowering The Disabled' value="empowering the disabled"/>
+      <option label='Water Conservation' value="water conservation"/>
+      <option label='Food Managment' value="food managment"/>
     </Input>
   </FormGroup>
   <FormGroup>
