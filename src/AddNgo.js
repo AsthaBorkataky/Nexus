@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState,useEffect } from 'react'
 import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
@@ -11,6 +11,15 @@ toast.configure()
 function AddNgo() {
 const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
 let history=useNavigate();
+const Route=()=> {
+  history('/signin/profile')
+   
+ }
+ useEffect(()=>{
+   if(localStorage.getItem('token')==='in')
+     Route();
+ 
+ });
 const [id,setId] = useState(1);
 const formHandler = (e) =>{
   e.preventDefault();

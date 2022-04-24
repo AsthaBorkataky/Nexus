@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
@@ -17,9 +17,14 @@ function SignIn(props) {
 
 };
 const Route=()=> {
- history('profile')
+ history('/signin/profile')
   
 }
+useEffect(()=>{
+  if(localStorage.getItem('token')==='in')
+    Route();
+
+});
 
   const postData=(data)=>{
     axios.post("http://localhost:8096/api/login",data).then(
@@ -33,7 +38,7 @@ const Route=()=> {
           else {
                 toast.success("Logged in!");
                 localStorage.setItem('token','in')
-                localStorage.setItem('user', JSON.stringify(response.data));
+                localStorage.setItem('ngo', JSON.stringify(response.data));
                 
             Route();
             }
