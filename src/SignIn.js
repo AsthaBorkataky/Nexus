@@ -5,7 +5,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
 import './SignIn.css';
-
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 function SignIn(props) {
   let history= useNavigate();
   const [credentials, setCredentials] = useState({});
@@ -19,6 +20,7 @@ const Route=()=> {
  history('profile')
   
 }
+toast.success("Logged in!");
   const postData=(data)=>{
     axios.post("http://localhost:8096/api/login",data).then(
         (response)=>{
@@ -29,9 +31,10 @@ const Route=()=> {
               position : "bottom-center",
             });}
           else {
+                toast.success("Logged in!");
                 localStorage.setItem('token','in')
                 localStorage.setItem('user', JSON.stringify(response.data));
-                toast.success("Logged in!");
+                
             Route();
             }
         },(error)=>{

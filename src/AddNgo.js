@@ -3,6 +3,9 @@ import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function AddNgo() {
 const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
@@ -14,8 +17,10 @@ const formHandler = (e) =>{
   (response)=>{
     console.log(response);
     setNgoDetails(response.data);
+    toast.success("Successfully Added")
    history('/')
 },(error)=>{
+    toast.error("Unable to Sign Up")
     console.log(error);
     
   })
