@@ -50,15 +50,7 @@ function AllNgos() {
     }, []);
   return (
     <div>
-        <div>
-         <Link to='/'>
-      <img
-            className="icn"
-            src="images/logo.png"
-            alt=""
-        />    
-        </Link>
-        </div>
+        <Header/>
         <div className="contains">
         {
             ngos.length>0? ngos.map((item)=><Ngo key={item.id} ngo ={item}/>)

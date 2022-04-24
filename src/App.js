@@ -1,6 +1,5 @@
 import './App.css';
 import Home from './Home';
-import About from './About';
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import { Link,Routes } from 'react-router-dom';
 import SignIn from './SignIn';
@@ -18,12 +17,9 @@ function App() {
 <div className="App">
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="about" element={<About />}></Route>
-          <Route path="signin" element={<SignIn/>}></Route>
-          <Route path="animalwelfare" element={<AnimalWelfare/>}></Route>
-          <Route path="addngo" element={<AddNgo/>}></Route>
+          <Route path="/addngo" element={<AddNgo/>}></Route>
           <Route path="allngos" element={<AllNgos/>}></Route>
-          <Route path="signin" element={<SignIn/>}></Route>
+          <Route path="/signin" element={<SignIn/>}></Route>
           <Route path="signin/profile" element={<Profile/>}></Route>
           <Route path="/viewProfile" element={<ViewProfile/>}></Route>
           <Route path="/update" element={<Update/>}></Route>

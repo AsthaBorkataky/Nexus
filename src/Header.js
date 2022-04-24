@@ -18,11 +18,11 @@ function Header() {
   return (
     <div className='header'>
         {/* to use this way u need to store the images in the public folder*/}
-        <img
+        <Link to='/'><img
             className="header_icon"
             src="images/logo.png"
             alt=""
-        />
+        /></Link>
     
 
         <div className='header-center'>
@@ -32,9 +32,9 @@ function Header() {
 
           <div className='header_right'>
          
-          <Link to='addngo'><Button className='host' color ='warning' outline> Host Your Ngo</Button></Link>
+          <Link to='/addngo'><Button className='host' color ='warning' outline> Host Your Ngo</Button></Link>
           
-            <Link to ='signin'><Button className='sign' color ='warning' outline>Sign In</Button></Link>
+            <Link to ='/signin'><Button className='sign' color ='warning' outline>Sign In</Button></Link>
             </div>
         </div> 
     
