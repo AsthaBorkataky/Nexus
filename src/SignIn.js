@@ -20,7 +20,7 @@ const Route=()=> {
  history('profile')
   
 }
-toast.success("Logged in!");
+
   const postData=(data)=>{
     axios.post("http://localhost:8096/api/login",data).then(
         (response)=>{
@@ -39,9 +39,7 @@ toast.success("Logged in!");
             }
         },(error)=>{
             console.log(error);
-            toast.error("Something went wrong!",{
-                position: "bottom-center",
-            })
+            toast.error("Something went wrong!")
         }
     )
 };
@@ -50,11 +48,13 @@ toast.success("Logged in!");
   return (
     <div>
           <div>
+           <Link to='/'>
            <img
             className="header_icon"
             src="images/logo.png"
             alt=""
         />
+        </Link> 
         </div>
         <div>
 <Form className='form'>

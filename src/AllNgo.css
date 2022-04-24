@@ -1,0 +1,12 @@
+.icn{
+    object-fit: contain;
+    height: 70px;
+    margin-left: 20px;
+
+}
+.contains {
+    columns: 3;
+   
+    object-fit: contain;
+    display: inline;
+  }

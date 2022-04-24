@@ -2,7 +2,9 @@ import React, { useState, useEffect} from "react";
 import Ngo from "./Ngo";
 import axios from 'axios';
 import { toast } from "react-toastify";
-import {useLocation} from 'react-router-dom';
+import {useLocation,Link} from 'react-router-dom';
+import Header from "./Header";
+import './AllNgo.css'
 /*{
     name:"Ngo water",
     category:"animal",
@@ -48,12 +50,21 @@ function AllNgos() {
     }, []);
   return (
     <div>
-        <h1>Ngo Results</h1>
-        <p>List of Ngos are as Follows</p>
+        <div>
+         <Link to='/'>
+      <img
+            className="icn"
+            src="images/logo.png"
+            alt=""
+        />    
+        </Link>
+        </div>
+        <div className="contains">
         {
             ngos.length>0? ngos.map((item)=><Ngo key={item.id} ngo ={item}/>)
             :"No Ngos Found"
         }
+        </div>
     </div>
   )
 }

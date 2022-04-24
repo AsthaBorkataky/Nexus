@@ -8,6 +8,8 @@ import AnimalWelfare from './AnimalWelfare';
 import AddNgo from './AddNgo';
 import AllNgos from './AllNgos';
 import Profile from './Profile';
+import Footer from './Footer';
+import ViewProfile from './ViewProfile';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           <Route path="allngos" element={<AllNgos/>}></Route>
           <Route path="signin" element={<SignIn/>}></Route>
           <Route path="signin/profile" element={<Profile/>}></Route>
+          <Route path="/viewProfile" element={<ViewProfile/>}></Route>
       </Routes>
+      <Footer/>
 
         </div>
        

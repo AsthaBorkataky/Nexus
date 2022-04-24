@@ -1,0 +1,35 @@
+.ngo-name{
+
+    font-weight: bolder;
+    font-style: oblique;
+    font-size: xx-large;
+
+}
+
+.ngo-email{
+
+    font-weight:normal;
+    font-style:normal;
+    font-size: small;
+}
+.ngo-phoneno{
+    font-weight:normal;
+    font-style:normal;
+    font-size: small;
+}
+
+.ngo-category{
+
+    font-weight:bold;
+    font-style:normal;
+    font-size: larger;
+    color: brown;
+}
+
+
+.ngo-vision{
+    font-weight:normal;
+    font-style:normal;
+    font-size: large;
+
+}

@@ -2,9 +2,10 @@ import React, { Fragment, useState } from 'react'
 import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './AddNgo.css'
 toast.configure()
 
 function AddNgo() {
@@ -28,12 +29,22 @@ const formHandler = (e) =>{
 
 return (
     <div>
-        <Form>
-          <FormGroup>
-          <Label for="Name">
+      <div>
+        <Link to='/'>
+      <img
+            className="icon"
+            src="images/logo.png"
+            alt=""
+        />
+        </Link>
+      </div>
+        <div>
+        <Form className='frm'>
+          <FormGroup className='frm-inputs'>
+          <Label for="Name" className='frm-label'>
               Ngo Name
             </Label>
-                <Input
+                <Input className='frm-input'
       id="name"
       name="name"
       placeholder="Enter Your Ngo Name"
@@ -44,11 +55,11 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup>
-    <Label for="email">
+  <FormGroup className='frm-inputs'>
+    <Label for="email" className='frm-label' >
       Email
-    </Label>
-    <Input
+    </Label >
+    <Input className='frm-input'
       id="email"
       name="email"
       placeholder="Enter Ngo Email"
@@ -56,11 +67,11 @@ return (
       onChange={(e)=>{setNgoDetails({...ngoDetails,"email":e.target.value})}}
     />
   </FormGroup>
-  <FormGroup>
-    <Label for="password">
+  <FormGroup className='frm-inputs'> 
+    <Label for="password" className='frm-label'>
       Password
     </Label>
-    <Input
+    <Input className='frm-input'
       id="password"
       name="password"
       placeholder="password"
@@ -68,11 +79,11 @@ return (
       onChange={(e)=>{setNgoDetails({...ngoDetails,"password":e.target.value})}}
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="Vision">
+  <FormGroup className='frm-inputs'>
+          <Label for="Vision" className='frm-label'>
               VISION
             </Label>
-                <Input
+                <Input className='frm-input'
       id="vison"
       name="vision"
       placeholder="Enter Your Ngo Vision"
@@ -83,11 +94,11 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="Address">
-              Address
+  <FormGroup className='frm-inputs'>
+          <Label for="Address" className='frm-label'>
+              Main Office Address
             </Label>
-                <Input
+                <Input className='frm-input'
       id="address"
       name="address"
       placeholder="Enter Your Ngo Address"
@@ -98,14 +109,14 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="loc">
+  <FormGroup className='frm-inputs'>
+          <Label for="loc" className='frm-label'>
               Location
             </Label>
-                <Input
+                <Input className='frm-input'
       id="loc"
       name="loc"
-      placeholder="Enter Your Ngo State Location"
+      placeholder="List the States Actively Working in"
       type="text"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"loc":e.target.value});
     setId(e.target.value);
@@ -113,11 +124,11 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="Phone No">
-              Phone No
+  <FormGroup className='frm-inputs'> 
+          <Label for="Phone No" className='frm-label'>
+              Contact Details
             </Label>
-                <Input
+                <Input className='frm-input'
       id="phoneno"
       name="phoneno"
       placeholder="Enter Your Ngo Phone No"
@@ -128,88 +139,92 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup>
-    <Label for="exampleSelect">
-      Your Category
+  <FormGroup className='frm-inputs'>
+    <Label for="exampleSelect" className='frm-label'>
+      Ngo Category
     </Label>
-    <Input
+    <Input className='frm-input'
       id="exampleSelect"
       name="select"
       type="select"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"category":e.target.value})}}
     >
-      <option label='Animal Welfare' value="animal welfare" />
-      <option label='Forest Conservation' value="forest conservation" />
-      <option label='Aiding The Old' value="aiding the old"/>
-      <option label='Women Empowerment' value="women empowerment"/>
-      <option label='Child Education' value="child education"/>
-      <option label='Healthcare' value="healthcare"/>
-      <option label='Empowering The Disabled' value="empowering the disabled"/>
-      <option label='Water Conservation' value="water conservation"/>
-      <option label='Food Managment' value="food managment"/>
+      <option label='Animal Welfare' value="Animal Welfare"  className='option'/>
+      <option label='Forest Conservation' value="Forest Conservation" className='option'/>
+      <option label='Aiding The Old' value="Aiding The Old" className='option'/>
+      <option label='Women Empowerment' value="Women Empowerment" className='option'/>
+      <option label='Child Education' value="Child Education" className='option'/>
+      <option label='Healthcare' value="Healthcare" className='option'/>
+      <option label='Empowering The Disabled' value="Empowering The Disabled" className='option'/>
+      <option label='Water Conservation' value="Water Conservation" className='option'/>
+      <option label='Food Managment' value="Food Managment" className='option'/>
     </Input>
   </FormGroup>
-  <FormGroup>
-    <Label for="desc">
+  <FormGroup className='frm-inputs'>
+    <Label for="desc" className='frm-label'>
       Enter Ngo Description
     </Label>
-    <Input
+    <Input className='frm-input'
       id="exampleText"
       name="text"
       type="textarea"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"desc":e.target.value})}}
     />
-    <FormGroup>
-          <Label for="Campaign1">
-              Enter your First Running Campaign
+    </FormGroup>
+    <FormGroup className='frm-inputs'>
+          <Label for="Campaign1" className='frm-label'> 
+              Campaign 1
             </Label>
-                <Input
+                <Input className='frm-input'
       id="campaign1"
       name="campaign1"
-      placeholder="Enter Your First Recent Campaign"
-      type="text"
+      placeholder="Details of Running Campaign"
+      type="textarea"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign1":e.target.value});
     setId(e.target.value);
     console.log(id);
     }}  
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="Campaign2">
-              Enter your Second Running Campaign
+  <FormGroup className='frm-inputs'>
+          <Label for="Campaign2" className='frm-label'>
+              Campaign 2
             </Label>
-                <Input
+                <Input className='frm-input'
       id="campaign2"
       name="campaign2"
-      placeholder="Enter Your Second Running Campaign"
-      type="text"
+      placeholder="Details of Running Campaign"
+      type="textarea"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign2":e.target.value});
     setId(e.target.value);
     console.log(id);
     }}  
     />
   </FormGroup>
-  <FormGroup>
-          <Label for="Campaign3">
-              Enter your Third Recent Campaign
+  <FormGroup className='frm-inputs'>
+          <Label for="Campaign3" className='frm-label'>
+              Campaign 3
             </Label>
-                <Input
+                <Input className='frm-input'
       id="campaign3"
       name="campaign3"
-      placeholder="Enter Your Third Recent Campaign"
-      type="text"
+      placeholder="Details of Running Campaign"
+      type="textarea"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"campaign3":e.target.value});
     setId(e.target.value);
     console.log(id);
     }}  
     />
   </FormGroup>
-  </FormGroup>
-  <Button onClick={(e)=>{console.log(ngoDetails);formHandler(e)}}>
-    Submit
-  </Button>
-</Form>
-<Footer/>
+  
+  <Button className ='frm-input-btn' onClick={(e)=>{console.log(ngoDetails);formHandler(e)}}>
+          REGISTER
+        </Button>
+        <div className='button'>
+        <Link to='/'><Button color ='warning' outline >Go Back</Button></Link>
+        </div>
+      </Form>
+      </div>
     </div>
   )
 }

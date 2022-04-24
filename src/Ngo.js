@@ -1,4 +1,7 @@
 import React from "react";
+import './Ngo.css'
+import { Grid } from '@mui/material'
+import { Link } from "react-router-dom";
 
 import{
     Card,
@@ -22,18 +25,21 @@ function Ngo({ngo}){
     
     return(
         <Card>
-            <CardBody>
-                <CardSubtitle className="font-weight-bold"> {ngo.name}</CardSubtitle>
-                <CardText>{ngo.email}</CardText>
-                <CardText>{ngo.phoneno}</CardText>
-                <CardText>{ngo.category}</CardText>
-                <CardText>{ngo.vision}</CardText>
+                <CardBody className="box"> 
+                <CardSubtitle className="ngo-name"> {ngo.name}</CardSubtitle>
+                <CardText className="ngo-email" >{ngo.email}</CardText>
+                <CardText className="ngo-phoneno">{ngo.phoneno}</CardText>
+                <CardText className="ngo-category">{ngo.category}</CardText>
+                <CardText className="ngo-vision">{ngo.vision}</CardText>
                 <Container className="text-center">
-                    <Button color="danger">View More</Button>
+                <Link to="/viewProfile" state={{id :ngo.id}}>
+                <Button color="danger">View More</Button> </Link>
                 </Container>
-            </CardBody>
-        </Card>
+                 </CardBody>
+                 </Card>
+            
         
+     
     
     )
 }
