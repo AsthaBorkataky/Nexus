@@ -29,7 +29,8 @@ const Route=()=> {
               position : "bottom-center",
             });}
           else {
-                localStorage.setItem('token', response.data);
+                localStorage.setItem('token','in')
+                localStorage.setItem('user', JSON.stringify(response.data));
                 toast.success("Logged in!");
             Route();
             }
