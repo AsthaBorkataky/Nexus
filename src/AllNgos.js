@@ -28,19 +28,24 @@ import './AllNgo.css'
 }*/
 
 function AllNgos() {
-
+    var pat;
     const location=useLocation()
-    const {catg}=location.state
+    const val=location.state
     const [ngos,setNgos]=useState([])
+    if(val.type==1)
+         pat="http://localhost:8096/api/ngocategory/"+val.catg;
+    else
+        pat="http://localhost:8096/api/ngoq/"+val.catg;
     const getAllNgosFromServer = () => {
-        axios.get("http://localhost:8096/api/ngocategory/"+catg).then(
+
+        axios.get(pat).then(
             (response) => {
-                console.log(catg);
+                console.log(val);
                 setNgos(response.data);
                 },
             (error) => {
                 console.log(error);
-                toast.error(catg, {position: "bottom-center",}
+                toast.error(val, {position: "bottom-center",}
                 );
             }
         )

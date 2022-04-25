@@ -1,5 +1,5 @@
 import React, { Fragment, useState,useEffect } from 'react'
-import {Button, Form,FormGroup,Label,Input,FormText} from 'reactstrap';
+import {Button, Form,FormGroup,Label,Input,FormText,Col} from 'reactstrap';
 import Footer from './Footer';
 import axios from 'axios';
 import {useNavigate,Link} from 'react-router-dom';
@@ -10,6 +10,7 @@ toast.configure()
 
 function AddNgo() {
 const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
+var [photo, setPhoto] = useState(null);
 let history=useNavigate();
 const Route=()=> {
   history('/signin/profile')
@@ -21,9 +22,36 @@ const Route=()=> {
  
  });
 const [id,setId] = useState(1);
-const formHandler = (e) =>{
+const uploadImage = (event) => {
+
+  setPhoto(event.target.files[0]);
+  console.log(photo);
+
+}
+const formHandler=(e)=>{
+  console.log(ngoDetails);
+  postDatatoServer(ngoDetails);
   e.preventDefault();
-  axios.post("http://localhost:8096/api/saveNgo",ngoDetails).then(
+};
+const  postDatatoServer= (data) =>{
+  var formData = new FormData();
+  formData.append('file', photo);
+  formData.append('email', data['email']);
+  formData.append('name', data['name']);
+  formData.append('vision', data['vision']);
+  formData.append('loc', data['loc']);
+  formData.append('phoneno', data['phoneno']);
+  formData.append('address', data['address']);
+  formData.append('password', data['password']);
+  formData.append('desc', data['desc']);
+  formData.append('category', data['category']);
+  formData.append('campaign1', data['campaign1']);
+  formData.append('campaign2', data['campaign2']);
+  formData.append('campaign3', data['campaign3']);
+  axios.post("http://localhost:8096/api/addaNgo",formData,{ headers: {
+    "Content-Type": "multipart/form-data",
+  },
+}).then(
   (response)=>{
     console.log(response);
     setNgoDetails(response.data);
@@ -224,6 +252,22 @@ return (
     console.log(id);
     }}  
     />
+  </FormGroup>
+  <FormGroup row>
+    <Label for="exampleFile" sm={2}>
+      File
+    </Label>
+    <Col sm={10}>
+      <Input
+        id="exampleFile"
+        name="file"
+        type="file"
+        onChange = {uploadImage}
+      />
+      <FormText>
+        This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
+      </FormText>
+    </Col>
   </FormGroup>
   
   <Button className ='frm-input-btn' onClick={(e)=>{console.log(ngoDetails);formHandler(e)}}>

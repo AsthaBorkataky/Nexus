@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/addngo" element={<AddNgo/>}></Route>
-          <Route path="allngos" element={<AllNgos/>}></Route>
+          <Route path="/allngos" element={<AllNgos/>}></Route>
           <Route path="/signin" element={<SignIn/>}></Route>
           <Route path="signin/profile" element={<Profile/>}></Route>
           <Route path="/viewProfile" element={<ViewProfile/>}></Route>

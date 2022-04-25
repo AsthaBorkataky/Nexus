@@ -1,14 +1,37 @@
 import { Button } from 'reactstrap';
-import React, {Link, useEffect} from 'react'
+import React, {Link, useEffect, useState} from 'react'
 import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
 import { Route, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function Profile() {
   var x = localStorage.getItem("token");
   let history=useNavigate();
   var ngo = JSON.parse(localStorage.getItem('ngo'));
+  const [image, setImage] = useState('');
+    
+  useEffect(() => {
+      fetchCategoryImage(ngo.id)
+  },[]);
+
+  const fetchCategoryImage = (id ) => {
+      if (id !== null) {
+          axios.get("http://localhost:8096/api/ngo/image/"+id, { responseType: 'blob' }).then(
+              response => {
+              if (response.data) {
+                  setImage(URL.createObjectURL(response.data))
+              } else {
+
+              }
+          }).catch(error => {
+              console.log("Error", error);
+          })
+      }
+  }
   const Route=()=>{
     localStorage.clear();
     toast.success("Logged out Successfully")
@@ -47,10 +70,10 @@ function Profile() {
       <h1>This is profile {ngo.campaign2}</h1>
       <h1>This is profile {ngo.campaign3}</h1>
       <h1>This is profile {ngo.email}</h1>
+      <img src={image}/>
       <Button onClick={()=>Rout()}>Edit Profile</Button>
       <Button onClick={()=>Route()} >Logout</Button>
       <Button onClick={()=>Delete()} >Delete</Button>
-      
     </div>
   )
 }
