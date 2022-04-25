@@ -15,6 +15,7 @@ function Profile() {
   var x = localStorage.getItem("token");
   let history=useNavigate();
   var ngo = JSON.parse(localStorage.getItem('ngo'));
+  console.log(ngo.id)
   const [image, setImage] = useState('');
     
   useEffect(() => {

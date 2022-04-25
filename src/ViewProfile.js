@@ -35,8 +35,10 @@ export default function ViewProfile() {
        }
   useEffect(() => {
       fetchCategoryImage(id)
-      if(localStorage.getItem('token')===id){
-        Route();
+      if(localStorage.getItem('token')){
+        var ngo = JSON.parse(localStorage.getItem('ngo'));
+        if(ngo.id==id)
+            Route();
       }
   },[]);
 

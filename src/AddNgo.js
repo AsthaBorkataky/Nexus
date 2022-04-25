@@ -17,7 +17,7 @@ const Route=()=> {
    
  }
  useEffect(()=>{
-   if(localStorage.getItem('token')==='in')
+   if(localStorage.getItem('token'))
      Route();
  
  });

@@ -17,11 +17,12 @@ function SignIn(props) {
 
 };
 const Route=()=> {
+  console.log(localStorage.getItem('token'))
  history('/signin/profile')
   
 }
 useEffect(()=>{
-  if(localStorage.getItem('token')!='')
+  if(localStorage.getItem('token'))
     Route();
 
 });
