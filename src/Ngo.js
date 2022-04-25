@@ -27,10 +27,8 @@ function Ngo({ngo}){
         <Card>
                 <CardBody className="box"> 
                 <CardSubtitle className="ngo-name"> {ngo.name}</CardSubtitle>
-                <CardText className="ngo-email" >{ngo.email}</CardText>
-                <CardText className="ngo-phoneno">{ngo.phoneno}</CardText>
                 <CardText className="ngo-category">{ngo.category}</CardText>
-                <CardText className="ngo-vision">{ngo.vision}</CardText>
+                <CardText className="ngo-desc">{ngo.desc}</CardText>
                 <Container className="text-center">
                 <Link to="/viewProfile" state={{id :ngo.id}}>
                 <Button color="danger">View More</Button> </Link>

@@ -21,7 +21,7 @@ const Route=()=> {
   
 }
 useEffect(()=>{
-  if(localStorage.getItem('token')==='in')
+  if(localStorage.getItem('token')!='')
     Route();
 
 });
@@ -37,7 +37,7 @@ useEffect(()=>{
             });}
           else {
                 toast.success("Logged in!");
-                localStorage.setItem('token','in')
+                localStorage.setItem('token',data.id)
                 localStorage.setItem('ngo', JSON.stringify(response.data));
                 
             Route();
@@ -99,9 +99,7 @@ useEffect(()=>{
   <Link to='/'><Button color='warning' outline className='btn'>Go Back</Button></Link>
 </Form>
 </div>
-<div>
-<Footer className='footer'/>
-</div>
+<Footer/>
     </div>
   )
 }

@@ -148,7 +148,7 @@ return (
   </FormGroup>
   <FormGroup className='frm-inputs'>
           <Label for="loc" className='frm-label'>
-              Location
+              Working IN
             </Label>
                 <Input className='frm-input'
       id="loc"
@@ -253,20 +253,17 @@ return (
     }}  
     />
   </FormGroup>
-  <FormGroup row>
-    <Label for="exampleFile" sm={2}>
-      File
+  <FormGroup row className='frm-inputs'> 
+    <Label for="exampleFile" sm={2} className='frm-label'>
+      Upload Banner
     </Label>
     <Col sm={10}>
       <Input
         id="exampleFile"
         name="file"
         type="file"
-        onChange = {uploadImage}
+        onChange = {uploadImage} className='frm-input'
       />
-      <FormText>
-        This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
-      </FormText>
     </Col>
   </FormGroup>
   

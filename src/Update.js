@@ -6,6 +6,7 @@ import {useNavigate,Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AddNgo.css'
+
 toast.configure()
 
 function Update() {
@@ -40,7 +41,7 @@ const formHandler = (e) =>{
             />
             </Link>
           </div>
-          <h2>Update The Required Fields</h2>
+          <div className='up'><h3>Update The Required Fields</h3></div>
             <div>
             <Form className='frm'>
               <FormGroup className='frm-inputs'>
@@ -114,7 +115,7 @@ const formHandler = (e) =>{
       </FormGroup>
       <FormGroup className='frm-inputs'>
               <Label for="loc" className='frm-label'>
-                  Location
+                  Working IN
                 </Label>
                     <Input className='frm-input'
           id="loc"

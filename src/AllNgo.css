@@ -1,12 +1,38 @@
-.icn{
-    object-fit: contain;
-    height: 70px;
-    margin-left: 20px;
-
-}
 .contains {
     columns: 3;
    
     object-fit: contain;
     display: inline;
   }
+
+  .contains>h2{
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-right: 100px;
+        padding-left: 100px;
+        color: brown;
+        border-radius: 10%;
+    border-style:outset ;
+    box-shadow: 15px 15px rgb(189, 192, 194);
+    margin-top: 50px;
+        
+  }
+  .ic{
+    object-fit: contain;
+    height: 70px;
+    margin-left: 20px;
+
+  }
+  .sgn{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.hst{
+    margin-right: 20px;
+    margin-left: 800px;
+}
+
+
+

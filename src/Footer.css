@@ -1,8 +1,9 @@
 .footer {
     border-top: 1px solid lightgray;
-    padding: 20px;
-    background-color: #f7f7f7;
+   
+    background-color: #f8f4f4;
     text-align: center;
+    
 }
 
 .footer > p {

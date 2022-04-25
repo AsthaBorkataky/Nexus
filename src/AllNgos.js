@@ -3,6 +3,7 @@ import Ngo from "./Ngo";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import {useLocation,Link} from 'react-router-dom';
+import {Button} from 'reactstrap';
 import Header from "./Header";
 import './AllNgo.css'
 /*{
@@ -55,13 +56,25 @@ function AllNgos() {
     }, []);
   return (
     <div>
-        <Header/>
+        <div>
+        <Link to='/'>
+      <img
+            className="ic"
+            src="images/logo.png"
+            alt=""
+        />
+        </Link> 
+         <Link to='/addngo'><Button className='hst' color ='warning' outline> Host Your Ngo</Button></Link>
+         
+           <Link to ='/signin'><Button className='sgn' color ='warning' outline>Sign In</Button></Link>
+        </div>
         <div className="contains">
         {
             ngos.length>0? ngos.map((item)=><Ngo key={item.id} ngo ={item}/>)
-            :"No Ngos Found"
+            :<h2>No Ngos Found!!!</h2>
         }
         </div>
+        
     </div>
   )
 }

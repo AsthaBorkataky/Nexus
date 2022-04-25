@@ -10,6 +10,7 @@ import Profile from './Profile';
 import Footer from './Footer';
 import ViewProfile from './ViewProfile';
 import Update from './Update';
+import Donate from './Donate';
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
           <Route path="signin/profile" element={<Profile/>}></Route>
           <Route path="/viewProfile" element={<ViewProfile/>}></Route>
           <Route path="/update" element={<Update/>}></Route>
+          <Route path="/donate" element={<Donate/>}></Route>
       </Routes>
-      <Footer/>
+     
 
         </div>
        

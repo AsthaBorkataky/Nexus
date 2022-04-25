@@ -5,6 +5,9 @@ import { Route, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./Profile.css"
+import MailIcon from '@mui/icons-material/Mail';
+import CallIcon from '@mui/icons-material/Call';
 
 
 
@@ -40,6 +43,9 @@ function Profile() {
   const Rout=()=>{
     history('/update');
   }
+  const Back=()=>{
+    history('/');
+  }
   
   
   const Delete=()=>{
@@ -54,26 +60,46 @@ function Profile() {
       console.log(error);
       
     })
-
+   
   }
   
   return (
-    <div>
-      <h1>This is profile {ngo.name}</h1>
-      <h1>This is profile {ngo.desc}</h1>
-      <h1>This is profile {ngo.category}</h1>
-      <h1>This is profile {ngo.vision}</h1>
-      <h1>This is profile {ngo.address}</h1>
-      <h1>This is profile {ngo.phoneno}</h1>
-      <h1>This is profile {ngo.loc}</h1>
-      <h1>This is profile {ngo.campaign1}</h1>
-      <h1>This is profile {ngo.campaign2}</h1>
-      <h1>This is profile {ngo.campaign3}</h1>
-      <h1>This is profile {ngo.email}</h1>
-      <img src={image}/>
-      <Button onClick={()=>Rout()}>Edit Profile</Button>
-      <Button onClick={()=>Route()} >Logout</Button>
-      <Button onClick={()=>Delete()} >Delete</Button>
+    <div className='full'>
+      <div className='in'>
+         <Button  className='ed' onClick={()=>Rout()}>Edit Profile</Button>
+         <Button className='de' onClick={()=>Delete()} >Delete</Button>
+         <Button className='de' onClick={()=>Route()} >Logout</Button>
+         <Button className='de' onClick={()=>Back()}>Home</Button>
+         <h1>{ngo.name}</h1>
+    </div>
+    <div  >
+      <img className='im' src={image}/>
+</div>
+    <div className='ds'>
+      <h4>{ngo.desc}</h4>
+      </div>
+      <div className='cat'>
+      <h4 >Our Ngo works in the domain of: {ngo.category}</h4>
+      </div>
+      <div className='vi'>
+      <h3>Our Vision: </h3>
+      <h4>{ngo.vision}</h4>
+      </div>
+      <div className='loc'>
+      <h4>We are working dilligently towards our Vision in the following States: {ngo.loc}</h4>
+      </div>
+      <div className='cm'>
+        <h2>Currently Running Campaigns</h2>
+      </div>
+      <div className='cm1'><h4>{ngo.campaign1}</h4></div>
+      <div className='cm1'> <h4>{ngo.campaign2}</h4></div>
+      <div className='cm1'><h4>{ngo.campaign3}</h4></div>
+      <div className='ad'><h3>Address :</h3> <h4>{ngo.address}</h4></div>
+      <div className='ph'>
+      <h4><MailIcon/>{ngo.email}</h4>
+      <h4><CallIcon/>{ngo.phoneno}</h4>
+      </div>
+      
     </div>
   )
 }

@@ -6,17 +6,13 @@
 
 }
 
-.ngo-email{
+.ngo-desc{
 
     font-weight:normal;
     font-style:normal;
     font-size: small;
 }
-.ngo-phoneno{
-    font-weight:normal;
-    font-style:normal;
-    font-size: small;
-}
+
 
 .ngo-category{
 
@@ -27,9 +23,3 @@
 }
 
 
-.ngo-vision{
-    font-weight:normal;
-    font-style:normal;
-    font-size: large;
-
-}

@@ -101,10 +101,13 @@ function Home() {
                 />
                 </Link>
                 </Grid>
+               
             </Grid>
+         
             </div>
+            
             </div>
-        
+       
         </div>
     )
 }
