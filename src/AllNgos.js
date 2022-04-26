@@ -65,7 +65,7 @@ function AllNgos() {
         />
         </Link> 
          <Link to='/addngo'><Button className='hst' color ='warning' outline> Host Your Ngo</Button></Link>
-         
+         <Link to='/adddonor'><Button className='dn' color ='warning' outline>Be a Donor</Button></Link>
            <Link to ='/signin'><Button className='sgn' color ='warning' outline>Sign In</Button></Link>
         </div>
         <div className="contains">

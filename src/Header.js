@@ -17,6 +17,8 @@ function Header(){
 };
 useState(initialState);
 
+ 
+
   return (
     <div className='header'>
         {/* to use this way u need to store the images in the public folder*/}
@@ -32,9 +34,10 @@ useState(initialState);
              <Link to="/allngos" state={srch}><SearchIcon/></Link>
         </div>
 
-          <div className='header_right'>
+          <div className='header_right' id='myDiv'>
          
           <Link to='/addngo'><Button className='host' color ='warning' outline> Host Your Ngo</Button></Link>
+          <Link to='/adddonor'><Button className='don' color ='warning' outline>Be a Donor</Button></Link>
           
             <Link to ='/signin'><Button className='sign' color ='warning' outline>Sign In</Button></Link>
             </div>

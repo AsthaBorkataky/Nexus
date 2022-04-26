@@ -11,6 +11,8 @@ import Footer from './Footer';
 import ViewProfile from './ViewProfile';
 import Update from './Update';
 import Donate from './Donate';
+import AddDonor from './AddDonor';
+import ProfileDonor from './ProfileDonor';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/viewProfile" element={<ViewProfile/>}></Route>
           <Route path="/update" element={<Update/>}></Route>
           <Route path="/donate" element={<Donate/>}></Route>
+          <Route path="/adddonor" element={<AddDonor/>}></Route>
+          <Route path="/profiledonor" element={<ProfileDonor/>}></Route>
       </Routes>
      
 

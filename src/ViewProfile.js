@@ -31,7 +31,6 @@ export default function ViewProfile() {
     let history= useNavigate();
     const Route=()=> {
         history('/signin/profile')
-         
        }
   useEffect(() => {
       fetchCategoryImage(id)
@@ -62,7 +61,7 @@ export default function ViewProfile() {
   return (
     <div className='full'>
       <div className='in'>
-         <Link to='/donate'><Button className='b' >Donate</Button></Link>
+         <Link to='/donate' state={ngo}><Button className='b' >Donate</Button></Link>
          <Link to='/'><Button className='h'>Home</Button></Link>
          <h1>{ngo.name}</h1>
     </div>

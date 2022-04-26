@@ -16,14 +16,27 @@ function SignIn(props) {
     e.preventDefault();
 
 };
+const handleSubmitdonor=(e)=>{
+  console.log(credentials);
+  postDataDonor(credentials);
+  e.preventDefault();
+
+};
 const Route=()=> {
   console.log(localStorage.getItem('token'))
  history('/signin/profile')
   
 }
+const dRoute=()=> {
+  console.log(localStorage.getItem('dtoken'))
+ history('/profiledonor')
+  
+}
 useEffect(()=>{
   if(localStorage.getItem('token'))
     Route();
+  else if(localStorage.getItem('dtoken'))
+    dRoute();
 
 });
 
@@ -48,6 +61,26 @@ useEffect(()=>{
             toast.error("Something went wrong!")
         }
     )
+};
+const postDataDonor=(data)=>{
+  axios.post("http://localhost:8096/api/donorlogin",data).then(
+      (response)=>{
+          console.log(response);
+          console.log(response.data);
+        if(response.data === ""){ 
+          toast.error("Invalid username and password, No such user exists");}
+        else {
+              toast.success("Logged in!");
+              localStorage.setItem('dtoken',data.id)
+              localStorage.setItem('donor', JSON.stringify(response.data));
+              
+          dRoute();
+          }
+      },(error)=>{
+          console.log(error);
+          toast.error("Something went wrong!")
+      }
+  )
 };
 
 
@@ -95,7 +128,10 @@ useEffect(()=>{
     />
   </div>
   <Button className='form-input-btn' onClick={handleSubmit}>
-    SIGN IN
+    SIGN IN AS NGO
+  </Button>
+  <Button className='form-input-btn' onClick={handleSubmitdonor}>
+    SIGN IN AS DONOR
   </Button>
   <Link to='/'><Button color='warning' outline className='btn'>Go Back</Button></Link>
 </Form>
