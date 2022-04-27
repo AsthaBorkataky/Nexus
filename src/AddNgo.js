@@ -16,9 +16,15 @@ const Route=()=> {
   history('/signin/profile')
    
  }
+ const dRoute=()=> {
+  history('/profiledonor')
+   
+ }
  useEffect(()=>{
    if(localStorage.getItem('token'))
      Route();
+  else if(localStorage.getItem('dtoken'))
+    dRoute();
  
  });
 const [id,setId] = useState(1);
