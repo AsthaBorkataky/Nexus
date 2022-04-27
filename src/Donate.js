@@ -9,8 +9,9 @@ function Donate() {
     
     const location=useLocation()
     const ngo=location.state
-    console.log(ngo)
-    const [donatedetails,setDonatedetails]=useState()
+  
+    //console.log(ngo)
+    const [donorDetails,setDonorDetails] = useState({ngo:{"id":ngo.id}});
     let history=useNavigate();
     const Route=()=>{
         history("/")
@@ -27,14 +28,23 @@ function Donate() {
             else{
                 console.log(ngo)
                 var donor = JSON.parse(localStorage.getItem('donor'));
-                setDonatedetails({...donatedetails,donor});
-                setDonatedetails({...donatedetails,ngo});
+                console.log(donor)
+                var x=donor.id;
+               setDonorDetails({...donorDetails,donor:{"id":x}});
+                console.log(donorDetails)
+                var y=ngo.id
+               // setDonorDetails({...donorDetails,y});
+                console.log("yay")
+               console.log(donorDetails)
+               
+              //console.log(params)
+                console.log("fffyay")                
 
             }
     },[]);
     const formHandler = (e) =>{
         e.preventDefault();
-        axios.post("http://localhost:8096/api/savedonatedetails",donatedetails).then(
+        axios.post("http://localhost:8096/api/savedonatedetails",donorDetails).then(
         (response)=>{
           console.log(response);
           toast.success("Successfully Donated. Visit Profile For Details")
@@ -68,10 +78,10 @@ function Donate() {
       name="donatedamt"
       placeholder="Enter Amount"
       type="number" 
-      onChange={(e)=>{setDonatedetails({...donatedetails,"donatedamt":e.target.value})}}
+      onChange={(e)=>{setDonorDetails({...donorDetails,"donatedamt":e.target.value})}}
     />
   </FormGroup>
-            <Button className ='frm-input-btn' onClick={(e)=>{console.log(donatedetails);formHandler(e)}}>
+            <Button className ='frm-input-btn' onClick={(e)=>{console.log(donorDetails);formHandler(e)}}>
               CONFIRM UPDATE
             </Button>
             <div className='button'>
