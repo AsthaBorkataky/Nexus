@@ -9,7 +9,7 @@ import './AddNgo.css'
 toast.configure()
 
 function AddNgo() {
-const [ngoDetails,setNgoDetails] = useState({category:"animal welfare"});
+const [ngoDetails,setNgoDetails] = useState({category:"Animal Welfare"});
 var [photo, setPhoto] = useState(null);
 let history=useNavigate();
 const Route=()=> {

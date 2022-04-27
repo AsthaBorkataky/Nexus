@@ -12,6 +12,23 @@ toast.configure()
 function AddDonor() {
     const [donorDetails,setDonorDetails] = useState({type:"Individual Donor"});
     let history=useNavigate();
+    const Route=()=> {
+      console.log(localStorage.getItem('token'))
+     history('/signin/profile')
+      
+    }
+    const dRoute=()=> {
+      console.log(localStorage.getItem('dtoken'))
+     history('/profiledonor')
+      
+    }
+    useEffect(()=>{
+      if(localStorage.getItem('token'))
+        Route();
+      else if(localStorage.getItem('dtoken'))
+        dRoute();
+    
+    });
     const formHandler=(e)=>{
         console.log(donorDetails);
         postData(donorDetails);

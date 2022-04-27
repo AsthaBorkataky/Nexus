@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { Button,Form ,Label,FormGroup,Input} from 'reactstrap'
 import {useLocation,Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import './Donate.css'
+import Footer from './Footer';
 function Donate() {
 
     
@@ -78,19 +80,19 @@ function Donate() {
          <div>
         <Link to='/'>
       <img
-            className="c"
+            className="header_icon"
             src="images/logo.png"
             alt=""
         />
         </Link>
       </div>
       <div>
-          <Form className='fm'>
-  <FormGroup className='fm-inputs'> 
-          <Label for="Donor Name" className='fm-label'>
+          <Form className='m'>
+  <FormGroup className='m-inputs'> 
+          <Label for="Donor Name" className='m-label'>
               Donation Name
             </Label>
-     <Input className='fm-input'
+     <Input className='m-input'
       id="donorname"
       name="donorname"
       placeholder="Donate Under The Name"
@@ -98,38 +100,39 @@ function Donate() {
       onChange={(e)=>{setDonorDetails({...donorDetails,"donorname":e.target.value})}}
     />
   </FormGroup>
-  <FormGroup className='fm-inputs'> 
-          <Label for="Ngo Name" className='fm-label'>
-              Donating To
+  <FormGroup className='m-inputs'> 
+          <Label for="Ngo Name" className='m-label'>
+              Donating To NGO
             </Label>
-     <Input className='fm-input'
+     <Input className='m-input'
       id="donatedamt"
       name="donatedamt"
-      placeholder="Enter Ngo Name"
+      placeholder="Enter Correct Ngo Name in CAPS"
       
       onChange={(e)=>{setDonorDetails({...donorDetails,"volunteerto":e.target.value})}}
     />
   </FormGroup>
-        <FormGroup className='fm-inputs'> 
-          <Label for="Donated Amount" className='fm-label'>
-              Amount To be Donated
+        <FormGroup className='m-inputs'> 
+          <Label for="Donated Amount" className='m-label'>
+              Amount 
             </Label>
-     <Input className='fm-input'
+     <Input className='m-input'
       id="donatedamt"
       name="donatedamt"
-      placeholder="Enter Amount"
+      placeholder="Enter the Amount"
       type="number" 
       onChange={(e)=>{setDonorDetails({...donorDetails,"donatedamt":e.target.value})}}
     />
   </FormGroup>
-            <Button className ='frm-input-btn' onClick={(e)=>{console.log(donorDetails);formHandler(e)}}>
-              CONFIRM UPDATE
+            <Button className ='m-input-btn' onClick={(e)=>{console.log(donorDetails);formHandler(e)}}>
+              DONATE NOW
             </Button>
-            <div className='button'>
+            <div className='bn'>
             <Link to='/viewProfile' state={{id :ngo.id}}><Button color ='warning' outline >Go Back</Button></Link>
             </div>
           </Form>
       </div>
+      <Footer />
     </div>
   )
 }

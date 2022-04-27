@@ -13,6 +13,7 @@ import Update from './Update';
 import Donate from './Donate';
 import AddDonor from './AddDonor';
 import ProfileDonor from './ProfileDonor';
+import NgoDonations from './NgoDonations';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/donate" element={<Donate/>}></Route>
           <Route path="/adddonor" element={<AddDonor/>}></Route>
           <Route path="/profiledonor" element={<ProfileDonor/>}></Route>
+          <Route path="/ngodonations" element={<NgoDonations/>}></Route>
       </Routes>
      
 

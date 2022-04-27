@@ -47,6 +47,9 @@ function Profile() {
   const Back=()=>{
     history('/');
   }
+  const Donations=()=>{
+    history('/ngodonations');
+  }
   
   
   const Delete=()=>{
@@ -68,9 +71,10 @@ function Profile() {
     <div className='full'>
       <div className='in'>
          <Button  className='ed' onClick={()=>Rout()}>Edit Profile</Button>
+         <Button className='de' onClick={()=>Donations()}>Donations</Button>
+         <Button className='de' onClick={()=>Back()}>Home</Button>
          <Button className='de' onClick={()=>Delete()} >Delete</Button>
          <Button className='de' onClick={()=>Route()} >Logout</Button>
-         <Button className='de' onClick={()=>Back()}>Home</Button>
          <h1>{ngo.name}</h1>
     </div>
     <div  >

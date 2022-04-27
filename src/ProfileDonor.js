@@ -1,9 +1,12 @@
 import React,{ useEffect, useState }  from 'react'
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import {Button} from 'reactstrap'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Ngo from "./Ngo"
+import './ProfileDonor.css'
+import MailIcon from '@mui/icons-material/Mail';
+import CallIcon from '@mui/icons-material/Call';
 toast.configure()
 
 function ProfileDonor() {
@@ -33,19 +36,32 @@ function ProfileDonor() {
         history('/');
       }
   return (
-    <div>
-    <h1>This is Donor Profile: {donor.name}</h1>
-    <h1>This is Donor Profile: {donor.phoneno}</h1>
-    <h1>This is Donor Profile{donor.email}</h1>
-    <h1>This is Donor Profile{donor.type}</h1>
-    <div className="contains">
+    <div className='fl'>
+      <div>
+      <Link to='/'>
+           <img
+            className="hr_icon"
+            src="images/logo.png"
+            alt=""
+        />
+        </Link> 
+        <Button  className='log' onClick={()=>Route()}>Logout</Button>
+      </div>
+      <div className='nm '>
+     <h2> {donor.name}</h2>
+     </div>
+     <div className='det'>
+    <h4><CallIcon /> {donor.phoneno}</h4>
+    <h4><MailIcon /> {donor.email}</h4>
+    </div>
+    <div className="ctns">
         {
-            donation.length>0? donation.map((item)=><h2>{item.volunteerto},{item.donorname},{item.donatedamt},</h2>)
-            :<h2>No Donations Found!!!</h2>
+            donation.length>0? donation.map((item)=><h4>You made a donation of an Amount of : Rs {item.donatedamt} to {item.volunteerto} foundation, under the donation name: {item.donorname}</h4>)
+            :<h4>No Donations Yet!!</h4>
         }  
       </div>
        
-    <Button onClick={()=>Route()}>Logout</Button>
+    
     </div>
   )
 }

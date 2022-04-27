@@ -75,8 +75,7 @@ export default function ViewProfile() {
       <h4 >Our Ngo works in the domain of: {ngo.category}</h4>
       </div>
       <div className='vi'>
-      <h3>Our Vision: </h3>
-      <h4>{ngo.vision}</h4>
+      <h4> Our Vision: {ngo.vision}</h4>
       </div>
       <div className='loc'>
       <h4>We are working dilligently towards our Vision in the following States: {ngo.loc}</h4>
