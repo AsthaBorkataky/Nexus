@@ -18,6 +18,9 @@
     background: bisque;
     border-style:outset ;
     box-shadow: 15px 15px rgb(189, 192, 194);
+    transition: all 0.4s ease-out;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
   }
 
   .fter{

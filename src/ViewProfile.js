@@ -44,7 +44,7 @@ export default function ViewProfile() {
 
   const fetchCategoryImage = (id ) => {
       if (id !== null) {
-          axios.get(`{base_url}/ngo/image/`+id, { responseType: 'blob' }).then(
+          axios.get(`${base_url}/ngo/image/`+id, { responseType: 'blob' }).then(
               response => {
               if (response.data) {
                   setImage(URL.createObjectURL(response.data))
