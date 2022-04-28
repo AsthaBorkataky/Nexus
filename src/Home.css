@@ -1,0 +1,15 @@
+.home_section{
+    display: flex;
+    display: inline;
+    padding: 30px;
+    
+}
+
+.lk{
+    text-decoration: none;
+    color: brown;
+}
+
+.lk :hover{
+    color: coral;
+}

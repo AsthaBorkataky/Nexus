@@ -1,0 +1,58 @@
+/* justify content is to space out the components as much as possible*/
+/* position sticky to let header stick to the app depite scrolling the website*/
+/*  z index to give priority who will always stay on top of another, position: sticky; deleted*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    
+    background-color: white;
+    z-index: 100;
+    width: 100%;
+    top:0;
+}
+.header_icon{
+    object-fit: contain;
+    height: 70px;
+    margin-left: 20px;
+}
+
+/* flex 1 is to let the search bar take up most of the space of the header */
+/* max-width is to let the serach bar with icon occupy the center of the container */
+.header-center{
+    display: flex;
+    flex: 1; 
+    align-items: center;
+    max-width: fit-content;
+    padding: 10px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+}
+
+/* to remove the border and outline of the rectangular input box*/
+.header-center > input{
+    border: none;
+    
+    outline-width: 0;
+    width: 250px;
+}
+
+header_right{
+    display: flex;
+    justify-content: space-between;
+    width: 10vw;
+    margin-right: 12px;
+}
+
+.sign{
+    margin-right: 10px;
+}
+
+.host{
+    margin-right: 30px;
+}
+
+.don{
+    margin-right: 20px;
+}
