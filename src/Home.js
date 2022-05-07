@@ -96,7 +96,7 @@ function Home() {
                 <Grid item xs ={12} sm={6} md={4}>
                 <Link Link to="/allngos" className='lk' state={{catg :"Food Managment",type:"1"}}>
                 <Card
-                src="https://www.kindpng.com/picc/m/121-1212281_drop-water-conservation-hd-png-download.png"
+                src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg"
                 title="Food Management"
                 />
                 </Link>
