@@ -33,7 +33,7 @@ function AddDonor() {
         console.log(donorDetails);
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let regexPhoneno=/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
-  if(donorDetails['email']===undefined||donorDetails['name']===undefined||donorDetails['phoneno']===undefined||ngoDetails['password']===undefined||ngoDetails['type']===undefined)
+  if(donorDetails['email']===undefined||donorDetails['name']===undefined||donorDetails['phoneno']===undefined||donorDetails['password']===undefined||donorDetails['type']===undefined)
     toast.error("Form Not Filled")
   else if(!donorDetails['email'].match(regexEmail))
     toast.error("Enter Valid Email")
