@@ -18,6 +18,15 @@ let history=useNavigate();
 const [id,setId] = useState(1);
 const formHandler = (e) =>{
   e.preventDefault();
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let regexPhoneno=/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+  if(ngoDetails['email']===undefined||ngoDetails['name']===undefined||ngoDetails['vision']===undefined||ngoDetails['loc']===undefined||ngoDetails['phoneno']===undefined||ngoDetails['address']===undefined||ngoDetails['password']===undefined||ngoDetails['desc']===undefined)
+    toast.error("Form Not Filled")
+  else if(!ngoDetails['email'].match(regexEmail))
+    toast.error("Enter Valid Email")
+  else if(!ngoDetails['phoneno'].match(regexPhoneno))
+    toast.error("Enter Valid Phone No")
+  else{
   axios.put(`${base_url}/ngolist/`+ngo.id,ngoDetails).then(
   (response)=>{
     console.log(response);
@@ -30,6 +39,7 @@ const formHandler = (e) =>{
     console.log(error);
     
   })
+}
 }
   return (
         <div>

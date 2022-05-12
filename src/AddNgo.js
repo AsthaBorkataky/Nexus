@@ -37,8 +37,18 @@ const uploadImage = (event) => {
 }
 const formHandler=(e)=>{
   console.log(ngoDetails);
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let regexPhoneno=/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+  if(ngoDetails['email']===undefined||ngoDetails['name']===undefined||ngoDetails['vision']===undefined||ngoDetails['loc']===undefined||ngoDetails['phoneno']===undefined||ngoDetails['address']===undefined||ngoDetails['password']===undefined||ngoDetails['desc']===undefined)
+    toast.error("Form Not Filled")
+  else if(!ngoDetails['email'].match(regexEmail))
+    toast.error("Enter Valid Email")
+  else if(!ngoDetails['phoneno'].match(regexPhoneno))
+    toast.error("Enter Valid Phone No")
+  else{
   postDatatoServer(ngoDetails);
   e.preventDefault();
+  }
 };
 const  postDatatoServer= (data) =>{
   var formData = new FormData();
@@ -97,20 +107,20 @@ return (
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
-  <FormGroup className='frm-inputs'>
+  <div className='frm-inputs'>
     <Label for="email" className='frm-label' >
       Email
     </Label >
     <Input className='frm-input'
+    type="email"
       id="email"
       name="email"
       placeholder="Enter Ngo Email"
-      type="email"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"email":e.target.value})}}
-    />
-  </FormGroup>
+      required/>
+  </div>
   <FormGroup className='frm-inputs'> 
     <Label for="password" className='frm-label'>
       Password
@@ -121,7 +131,7 @@ return (
       placeholder="password"
       type="password"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"password":e.target.value})}}
-    />
+      required/>
   </FormGroup>
   <FormGroup className='frm-inputs'>
           <Label for="Vision" className='frm-label'>
@@ -136,7 +146,7 @@ return (
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
   <FormGroup className='frm-inputs'>
           <Label for="Address" className='frm-label'>
@@ -151,7 +161,7 @@ return (
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
   <FormGroup className='frm-inputs'>
           <Label for="loc" className='frm-label'>
@@ -166,7 +176,7 @@ return (
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
   <FormGroup className='frm-inputs'> 
           <Label for="Phone No" className='frm-label'>
@@ -176,12 +186,12 @@ return (
       id="phoneno"
       name="phoneno"
       placeholder="Enter Your Ngo Phone No"
-      type="tel" pattern='[0-9]{10}'
+      type="text" pattern='[0-9]{10}'
       onChange={(e)=>{setNgoDetails({...ngoDetails,"phoneno":e.target.value});
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
   <FormGroup className='frm-inputs'>
     <Label for="exampleSelect" className='frm-label'>
@@ -213,7 +223,7 @@ return (
       name="text"
       type="textarea"
       onChange={(e)=>{setNgoDetails({...ngoDetails,"desc":e.target.value})}}
-    />
+      required/>
     </FormGroup>
     <FormGroup className='frm-inputs'>
           <Label for="Campaign1" className='frm-label'> 
@@ -228,7 +238,7 @@ return (
     setId(e.target.value);
     console.log(id);
     }}  
-    />
+    required/>
   </FormGroup>
   <FormGroup className='frm-inputs'>
           <Label for="Campaign2" className='frm-label'>
